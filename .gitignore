@@ -1,0 +1,4 @@
+# Ignore push of local preferences
+
+.DS_Store
+
