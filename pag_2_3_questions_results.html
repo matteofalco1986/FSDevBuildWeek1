@@ -1,58 +1,81 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="This page contains questions and answers of the Epicode questionnaire. It will reveal the final result as soon as the questions are finished">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
-    <title>Questionnaire</title>
+    <title>EPICODE - Questionnaire</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header>
-        <img src="assets/images/epicode_logo.png" alt="epicode_logo" id="logo"> <!-- immagine di sfondo-->
-    </header>
-    
-    <section class="hidePage"> <!-- pagina 2 -->
-        <div id="timer"></div> <!-- timer 60 secondi-->
-        <div>
-            <p id="quest"></p>
-            <button class="answer"></button>
-            <button class="answer"></button>
-            <button class="answer"></button>
-            <button class="answer"></button>
-            <button id="nextQuest">PROSSIMA &#8594;</button> 
-        </div>
-        <p>QUESTION <span id="countQuestions"></span>/10</p> <!-- lo span conterrà il contatore delle domande innietato tramite js-->
-    </section>
+    <div class="pageContent">
+        <header>
+            <img src="assets/images/epicode_logo.png" alt="epicode_logo" id="logo">
+            <div id="timer">
+                <p>seconds <br>
+                <span>15</span>
+                <br> remaining</p>
+            </div> <!-- timer 60 secondi-->
+        </header>
+        
+       <main>
+            <section> <!-- pagina 2 -->
 
-    <section class="hidePage"> <!-- pagina 3 -->
-        <main>
-            <div>
-                <h2>Results</h2>
-                <p>The summary of your answers:</p>
-            </div>
-            <div class="leftBox">
-                <h3>Correct</h3>
-                <p></p>
-            </div>
-
-            <div id="circle"> <!-- cerchio con percentuali e scritte -->
-                <h4></h4>
-                <p>We'll send you the certificate in few minutes.<br>
-                    Check your email (including promotions / span folder)</p>
-            </div>
-
-            <div class="rightBox">
-                <h3>Wrong</h3>
-                <p></p>
-            </div>
-
-            <button>RATE US</button>
-        </main>
-    </section>
+                <div class="challenge">
+                    <h2 id="quest">i have a question that deserves an answer</h2>
+                    <div class="allAnswers">
+                        <div>
+                           <div class="answerContainer"> <p class="answer">this is an answer</p>
+                        </div>
+                            <div class="answerContainer"><p class="answer">this is an answer</p></div>
+                        </div>
+                        <div>
+                            <div class="answerContainer"><p class="answer">this is an answer</p>
+                            </div>
+                            <div class="answerContainer"><p class="answer">this is an answer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=bottomPage>
+                    <div id="countQuestions">
+                        <p>question <span>1</span><span class="outOf"> / 10</span></p> <!-- lo span conterrà il contatore delle domande innietato tramite js-->
+                    </div>
+                    <button id="nextQuest">prossima &#8594;</button> 
+                </div>
+            </section>
+        
+            <section class="hidePage"> <!-- pagina 3 -->
+        
+                    <div>
+                        <h2>Results</h2>
+                        <p>The summary of your answers:</p>
+                    </div>
+                    <div class="leftBox">
+                        <h3>Correct</h3>
+                        <p></p>
+                    </div>
+        
+                    <div id="circle"> <!-- cerchio con percentuali e scritte -->
+                        <h4></h4>
+                        <p>We'll send you the certificate in few minutes.<br>
+                            Check your email (including promotions / span folder)</p>
+                    </div>
+        
+                    <div class="rightBox">
+                        <h3>Wrong</h3>
+                        <p></p>
+                    </div>
+        
+                    <button>RATE US</button>
+        
+            </section>
+       </main>
+    </div>
     <script src="assets/js/pag_2_3_questions_results.js"></script>
 </body>
 </html>
