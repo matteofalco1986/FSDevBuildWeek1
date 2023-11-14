@@ -22,8 +22,6 @@ body {
     font-weight: 400;
 }
 
-
-
 /* HEADER */
 
 header {
@@ -155,34 +153,72 @@ strong {
 
 .answerContainer {
     display: inline-block;
-    opacity: 2%;
-    background-color: white;
-    border-color: white;
-    border-style: groove;
+    border-color: rgba(255, 255, 255, 0.069);
+    border-style: solid;
+    background: rgba(255, 255, 255, 0.114);
     border-width: 2px;
-    border-radius: 20%;
+    border-radius: 30px;
+    margin: 0.5em 1em;
+    box-shadow: #ffffffd7 -1.5px -1.5px 3px;
 }
 
+.answerContainer:hover {
+    background: rgba(255, 255, 255, 0.256);
+    cursor: pointer;
+}
+
+
 .answer {
-    display: inline-block;
-    padding: 1em 4em;
+    padding: 1em 5em;
     color: #EBE8EE;
     opacity: 100%;
 
 }
 
-.bottomPage > *{
+.isSelected {
+    background-image: linear-gradient(180deg, #D20094, #900080);
+}
+
+.bottomPage > * {
     display: inline-block;
     margin: 0px 15vw;
     text-transform:uppercase;
 }
 
+.bottomPage p {
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
 .outOf {
     color: #AC1286;
+    font-weight: 400;
 }
 
 .hidePage {
     visibility: hidden;
+}
+
+#nextQuestContainer {
+    background-color: rgba(255, 255, 255, 0.062);
+    border-color: #b7b9c5a4;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    color: #B7B9C5;
+    padding: 1em;
+    box-shadow: #b7b9c56a 0px 0px 0.5px 0.5px;
+}
+
+#nextQuestContainer:hover {
+    background-color: rgba(255, 255, 255, 0.199);
+    cursor: pointer;
+}
+
+#nextQuest {
+    font-weight: 400;
+    font-size: 1rem;
+
 }
 
 
