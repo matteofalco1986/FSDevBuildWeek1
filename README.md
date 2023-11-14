@@ -25,4 +25,4 @@ Gli steps qui di seguito sono come li ha spiegati il prof. E' importante che li 
 
 NOTA BENE
 
-Da quanto ha detto il prof, il workflow corretto è partire con la repository clonata, fare un push a fine giornata, e un pull a inizio giornata. Il pull servirà a scaricare le modifiche fatte anche da tutti gli altri. E' fondamentale però che partiamo tutti dalla stessa repository clonata. Incrociando le dita, dovrebbe funzionare tutto seguendo questi steps.
+Da quanto ha detto il prof, il workflow corretto è partire con la repository clonata, fare push regolarmente, e un pull a inizio giornata. Il pull servirà a scaricare le modifiche fatte anche da tutti gli altri. E' fondamentale però che partiamo tutti dalla stessa repository clonata. Incrociando le dita, dovrebbe funzionare tutto seguendo questi steps.
