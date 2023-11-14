@@ -13,45 +13,18 @@
     <header>
         <img src="assets/images/epicode_logo.png" alt="epicode_logo" id="logo"> <!-- immagine di sfondo-->
     </header>
-    <main>    
-        <section> <!-- pagina 2 -->
-            <div id="timer"></div> <!-- timer 60 secondi-->
-            <div>
-                <label for="question"></label> <!-- contenitore domanda-->
-                <select name="question" id="question">
-                <option value="answ1">answ1</option> <!--option contenitori risposte, aventi stesso stile -->
-                <option value="answ2">answ2</option>
-                <option value="answ3">answ3</option>
-                <option value="answ4">answ4</option>
-                </select>
-                <button id="nextQuest">PROSSIMA &#8594;</button>
-            </div>
-            <p>QUESTION <span id="countQuestions"></span>/10</p> <!-- lo span conterrà il contatore delle domande innietato tramite js-->
-        </section>
-
-        <section> <!-- pagina 3 -->
-
-                <div>
-                    <h2>Results</h2>
-                    <p>The summary of your answers:</p>
-                </div>
-                <div class="leftBox">
-                    <h3>Correct</h3>
-                    <p></p>
-                </div>
-
-                <div> <!-- cerchio con percentuali e scritte -->
-                    <p></p>
-                    <p></p>
-                </div>
-
-                <div class="rightBox">
-                    <h3>Wrong</h3>
-                    <p></p>
-                </div>
-
-                <button>rate us</button>
-            </section>
-    </main>
+    <section>
+        <div id="timer"></div> <!-- timer 60 secondi-->
+        <div>
+            <p id="quest"></p>
+            <button class="answer"></button>
+            <button class="answer"></button>
+            <button class="answer"></button>
+            <button class="answer"></button>
+            <button id="nextQuest">PROSSIMA &#8594;</button> 
+        </div>
+        <p>QUESTION <span id="countQuestions"></span>/10</p> <!-- lo span conterrà il contatore delle domande innietato tramite js-->
+    </section>
+    <script src="assets/js/pag_2_3_questions_results.js"></script>
 </body>
 </html>
