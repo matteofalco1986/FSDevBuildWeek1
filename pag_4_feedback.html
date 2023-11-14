@@ -12,29 +12,31 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-   <div class="pageContent">
+    <div class="pageContent">
         <header>
             <img src="assets/images/epicode_logo.png" alt="Logo Epicode" id="logo">
         </header>
-        <main>
-            <section>
-                <div>
-                    <h2>Tell us how it's going</h2>
-                    <p>From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague</p>
-                </div>
-                <div id="rateStar">                                                                                 <!-- setto una classe al div per creare tramite js il rate con  le stelle-->
-    
-                </div>
-            </section>
-            <section>
-                <p>Leave us an open feedback about your experience so far</p>
-                <input type="text" placeholder="Write your comment here">                                            <!-- creo un'area di input -->
-            </section>
-            <form action="https://epicode.com/" target="_blank">                                                     <!-- creo un form con un pulsante in modo tale che se clicco il  -->
-                <button type="submit">MORE INFO</button>                                                             <!-- pulsante vado nel sito indicato nell'action del form-->
-            </form>
-        </main>
+        <div id="feedbackPage">
+            <main>
+                <section id="tellUs">
+                    <div>
+                        <h2>Tell us how it's going</h2>
+                        <p>From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?</p>
+                    </div>
+                    <div id="rateStar">                                                                                 <!-- setto una classe al div per creare tramite js il rate con  le stelle-->
+        
+                    </div>
+                </section>
+                <section id="feedback">
+                    <p>Leave us an open feedback about your experience so far</p>
+                    <input type="text" placeholder="Write your comment here">                                            <!-- creo un'area di input -->
+                </section>
+                <form action="https://epicode.com/" target="_blank">                                                     <!-- creo un form con un pulsante in modo tale che se clicco il  -->
+                    <button type="submit" id="moreInfoBtn">more info</button>                                                             <!-- pulsante vado nel sito indicato nell'action del form-->
+                </form>
+            </main>
+        </div>
    </div>
-    <script src="assets/js/pag_4_feedback.js"></script>                                                          <!-- script di js-->
+    <script src="assets/js/pag_4_feedback.js"></script>
 </body>
 </html>
