@@ -1,3 +1,5 @@
+//funzioni pagina due scritte da Massimo e Ramona 
+
 //array di oggetti di questiti
 const questions = [
     {
@@ -103,7 +105,7 @@ const questions = [
     },
   ];
   
-
+ //funzione timer countdown 60 secondi
   const timer = function(){
     let time 
     let end
@@ -121,36 +123,30 @@ const questions = [
     }
 }
 
-
+//funzione che deseleziona 
   const deselezionaClasse = function (){
     const selezionati = document.querySelector(".select");
     if (selezionati) selezionati.classList.remove("select");
-  }  
-
+  } 
+  
+//funzione crea domande 
   const showQuestion = function(){
-    for(let i=0; i < questions.length; i++){
-        const quest = document.getElementById("quest")
+    for(let i=0; i < questions.length; i++){ // ogni domanda
+        const quest = document.getElementById("quest")  
         const answer = document.getElementsByClassName("answer")
-        quest.innerHTML = questions[i].question;
-        answer[0].innerHTML = questions[i].correct_answer
+        quest.innerHTML = questions[i].question; //inserisco testo domanda
+        answer[0].innerHTML = questions[i].correct_answer // fino a riga 141 inserisco testo risposte in ogni contenitore con classe answer
         answer[1].innerHTML = questions[i].incorrect_answers[0]
         answer[2].innerHTML = questions[i].incorrect_answers[1]
         answer[3].innerHTML = questions[i].incorrect_answers[2]
-        const countQuest = document.getElementById("countQuestions")
-        countQuest.innerHTML = i+1
-        for (let i=0; i < answer.length; i++){
+        const countQuest = document.getElementById("countQuestions") 
+        countQuest.innerHTML = i+1 // nel paragrafo a piepagina inserisco l'indice dell'array di oggetti tiene il conto di ogni domanda 
+        for (let i=0; i < answer.length; i++){  // ad ogni bottone assegno la classe di selezione e la rimuovo a gli altri elementi 
             answer[i].addEventListener("click", function(e){
-                answer[i].classList.add("select");
                 deselezionaClasse()
+                answer[i].classList.add("select");
             })
-        }
-        
-
-
-
-        
-
+        }                
     }
-
   }
-  
+ 
