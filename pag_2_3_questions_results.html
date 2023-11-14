@@ -13,7 +13,8 @@
     <header>
         <img src="assets/images/epicode_logo.png" alt="epicode_logo" id="logo"> <!-- immagine di sfondo-->
     </header>
-    <section>
+    
+    <section class="hidePage"> <!-- pagina 2 -->
         <div id="timer"></div> <!-- timer 60 secondi-->
         <div>
             <p id="quest"></p>
@@ -24,6 +25,32 @@
             <button id="nextQuest">PROSSIMA &#8594;</button> 
         </div>
         <p>QUESTION <span id="countQuestions"></span>/10</p> <!-- lo span conterrà il contatore delle domande innietato tramite js-->
+    </section>
+
+    <section class="hidePage"> <!-- pagina 3 -->
+        <main>
+            <div>
+                <h2>Results</h2>
+                <p>The summary of your answers:</p>
+            </div>
+            <div class="leftBox">
+                <h3>Correct</h3>
+                <p></p>
+            </div>
+
+            <div id="circle"> <!-- cerchio con percentuali e scritte -->
+                <h4></h4>
+                <p>We'll send you the certificate in few minutes.<br>
+                    Check your email (including promotions / span folder)</p>
+            </div>
+
+            <div class="rightBox">
+                <h3>Wrong</h3>
+                <p></p>
+            </div>
+
+            <button>RATE US</button>
+        </main>
     </section>
     <script src="assets/js/pag_2_3_questions_results.js"></script>
 </body>
