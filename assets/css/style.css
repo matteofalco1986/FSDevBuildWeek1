@@ -1,8 +1,8 @@
 /* GENERAL SETTINGS */
 
 html {
-    min-width: 1200px;
-    max-width: 950px;
+    min-width: 950px;
+    max-width: 1200px;
     min-height: 712px;
     max-height: 800px;
 }
