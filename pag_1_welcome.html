@@ -11,27 +11,29 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header>
-        <img src="assets/images/epicode_logo.png" alt="Logo Epicode" id="logo">
-    </header>
-    <main>
-        <section class="firstsectionpage1">
-            <h1>Welcome to <strong>your exam</strong></h1><!--non ho messo br cosi da dare margin dx nel css ad h1-->
-            <h2>Instructions</h2>
-            <p>We don't expect most engineers to know the answers to all of these question, so don't worry if you're unsure of few of them</p><!--anche qui ho evitato br e facciamo andare a capo con margin dx in css a p-->
-            <ul>
-                <li>Each question is <strong>timed</strong> and can only be <strong>answered once.</strong></li>
-                <li>Changing browser tab or opening other windows will <strong>invalidate the question.</strong></li>
-                <li>This exam will take approx <strong>0-5 minutes.</strong></li>
-            </ul>
-        </section>
-        <section class="proceed">
-            <div>
-                <input type="checkbox">
-                <p>I promise to answer myself without help from anyone</p>
-                <a href="pag_2_3_questions_results.html" class="blueLink">PROCEED</a>
-            </div>
-        </section>    
-    </main>
+    <div class="pageContent">
+        <header>
+            <img src="assets/images/epicode_logo.png" alt="Logo Epicode" id="logo">
+        </header>
+        <main>
+            <section class="firstsectionpage1">
+                <h1><span>Welcome to </span><strong>your exam</strong></h1>
+                <h2>Instructions</h2>
+                <p>We don't expect most engineers to know the answers <br> to all of these questions, so don't worry if you're unsure of few of them.</p>
+                <ul>
+                    <li>Each question is <strong>timed</strong> and can only be <strong>answered once.</strong></li>
+                    <li>Changing browser tab or opening other windows will <strong>invalidate the question.</strong></li>
+                    <li>This exam will take approx <strong>0-5 minutes.</strong></li>
+                </ul>
+            </section>
+            <section class="proceed">
+                <div>
+                    <input type="checkbox" id="allowProceed">
+                    <p>I promise to answer myself without help from anyone</p>
+                    <a href="pag_2_3_questions_results.html" class="blueLink">proceed</a>
+                </div>
+            </section>    
+        </main>
+    </div>
 </body>
 </html>

@@ -1,14 +1,24 @@
 /* GENERAL SETTINGS */
+html {
+    min-width: 950px;
+}
+
 body {
     /* font-family: 'Inter', sans-serif; */
     font-family: 'Outfit', sans-serif;
-    font-weight: 100;
-    color: white;
+    font-weight: 400;
+    font-size: 1rem;
+    color:#B7B9C5;
     background-image: url('../images/bg.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
     text-align: center;
-    padding: 2rem;
     line-height: 1.4;
+}
+
+.pageContent{
+    padding: 5em;
+    font-weight: 100;
 }
 
 
@@ -17,7 +27,7 @@ body {
 
 header {
     text-align: left;
-    margin-bottom: 3rem;
+    margin-bottom: 7rem;
 }
 
 #logo {
@@ -26,7 +36,32 @@ header {
 
 /* MAIN */
 
-/* PAG 1 */ 
+/* PAGE 1 */ 
+
+h1 {
+    color: #E7E7EB;
+    font-size: 4em;
+    margin-bottom: 2rem;
+}
+
+h1 span, h1 strong {
+    display: block;
+    font-size: 1.2em;
+}
+h1 span {
+    line-height: 0.2;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+ul {
+    padding: 2em;
+    margin-bottom: 3em;
+}
+
 
 .firstsectionpage1, .proceed {
     text-align: left;
@@ -35,10 +70,49 @@ header {
     display: inline-block;
 }
 
+.proceed input {
+    border-style: solid;
+    border-color: white;
+    border-width: 10px;
+}
+
+.proceed > p {
+    color: #E7E7EB;
+    font-weight: 500;
+}
+
+
 .firstsectionpage1 > h2 {
     color: #C1108A;
 }
 
 strong {
+    color: #E7E7EB;
     font-weight: 700;
 }
+
+#allowProceed {
+    border-color: aqua;
+    border-style: solid;
+    border-width: 10px;
+}
+
+.blueLink {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-left: 12em;
+    background-color: #8cffff;
+    padding: 0.7em 2.5em; 
+    color: #0B113B;
+    box-shadow: #37ffff 2px 2px 20px 2px;
+}
+
+.blueLink:hover {
+    cursor: pointer;
+    background-color: #b5ffff;
+}
+
+
+/* PAGE 2 */
+
