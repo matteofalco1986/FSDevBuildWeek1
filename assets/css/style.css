@@ -233,6 +233,10 @@ strong {
     display: inline-block;
 }
 
+.testOutcomeText p span {
+    color: #00FFFF;
+}
+
 
 
 /* PAGE 4 */
