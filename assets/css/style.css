@@ -1,13 +1,11 @@
 /* GENERAL SETTINGS */
 body {
-    font-family: 'Inter', sans-serif;
-    font-family: 'Outfit', sans-serif;
     color: white;
     background-image: url('../images/bg.jpg');
     background-size: cover;
     text-align: center;
-    line-height: 1.4;
     padding: 2rem;
+    line-height: 1.4;
 }
 
 
@@ -30,8 +28,7 @@ header {
 .firstsectionpage1, .proceed {
     text-align: left;
 }
-
-.submitPag1 > * {
+.proceed > div {
     display: inline-block;
     text-align: left;
 }
@@ -39,4 +36,3 @@ header {
 .firstsectionpage1 > h2 {
     color: #C1108A;
 }
-
