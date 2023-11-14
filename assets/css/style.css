@@ -1,13 +1,14 @@
 /* GENERAL SETTINGS */
 body {
-    font-family: 'Inter', sans-serif;
+    /* font-family: 'Inter', sans-serif; */
     font-family: 'Outfit', sans-serif;
+    font-weight: 100;
     color: white;
     background-image: url('../images/bg.jpg');
     background-size: cover;
     text-align: center;
-    line-height: 1.4;
     padding: 2rem;
+    line-height: 1.4;
 }
 
 
@@ -41,3 +42,4 @@ header {
 strong {
     font-weight: 700;
 }
+
