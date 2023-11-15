@@ -125,11 +125,11 @@ const questions = [
   ];
   
  //funzione timer countdown 60 secondi
-  const timer = function(){
+  const timer = function(indexCount){ /* aggiunta di un argomento nella funzione timer per poter risettare facilmente il count */
     let time 
     let end
-    let count = 60
-    let containerTimer = document.getElementById("timer")
+    let count = indexCount
+    let containerTimer = document.querySelector('#timer span')
     containerTimer.innerHTML = count
     time = setTimeout(update,1000)
     function update(){
@@ -140,17 +140,22 @@ const questions = [
             end = "fine"
         }
     }
+    return count /* importante aggiungere il return per tracciare il count */
 }
 
 //funzione che deseleziona 
   const deselezionaClasse = function (){
-    const selezionati = document.querySelector(".select");
-    if (selezionati) selezionati.classList.remove("select");
+    const selezionati = document.querySelector(".isSelected");
+    if (selezionati){
+        selezionati.classList.remove("isSelected");
+    } 
   } 
   
 //funzione crea domande 
   const showQuestion = function(){
+    
     for(let i=0; i < questions.length; i++){ // ogni domanda
+        let count = timer(60)
         const quest = document.getElementById("quest")  
         const answer = document.getElementsByClassName("answer")
         quest.innerHTML = questions[i].question; //inserisco testo domanda
@@ -158,14 +163,22 @@ const questions = [
         answer[1].innerHTML = questions[i].incorrect_answers[0]
         answer[2].innerHTML = questions[i].incorrect_answers[1]
         answer[3].innerHTML = questions[i].incorrect_answers[2]
-        const countQuest = document.getElementById("countQuestions") 
+        const countQuest = document.querySelector('#countQuestion span') 
         countQuest.innerHTML = i+1 // nel paragrafo a piepagina inserisco l'indice dell'array di oggetti tiene il conto di ogni domanda 
         for (let i=0; i < answer.length; i++){  // ad ogni bottone assegno la classe di selezione e la rimuovo a gli altri elementi 
-            answer[i].addEventListener("click", function(e){
+            answer.addEventListener("click", function(e){
                 deselezionaClasse()
-                answer[i].classList.add("select");
+                answer.classList.add("isSelected");
             })
-        }                
+        }
+        if(count>0){ 
+            //l'utente ha ancora tempo di rispondere
+        }
+        else{
+            //passiamo alla prossima domanda
+        }               
     }
   }
  
+/*   timer()  *//* ho richiamato la funzione timer per controllare il suo andamento sulla pagina*/
+showQuestion() //richiamo la funzione per controllare il suo andamento
