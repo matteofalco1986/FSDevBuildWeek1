@@ -151,10 +151,10 @@ let index = 0 //inizializzo indice che gestirà array questions
       answers[3].innerHTML = questions[i].incorrect_answers[2]
       const countQuest = document.getElementById("countQuestions") 
       countQuest.innerHTML = i+1 // nel paragrafo a piepagina inserisco l'indice dell'array di oggetti tiene il conto di ogni domanda 
-      for (let i1=0; i < answers.length; i1++){  // ad ogni bottone assegno la classe di selezione e la rimuovo a gli altri elementi 
-          answers[i1].addEventListener("click", function(e){
+      for (let j1=0; j1 < answers.length; j1++){  // ad ogni bottone assegno la classe di selezione e la rimuovo a gli altri elementi 
+          answers[j].addEventListener("click", function(e){
               deselezionaClasse()
-              answers[i1].classList.add("select");
+              answers[j1].classList.add("select");
           })
         }              
   }
