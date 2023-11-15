@@ -333,7 +333,7 @@ console.log(timer(60))
 /*   timer()  *//* ho richiamato la funzione timer per controllare il suo andamento sulla pagina*/
 /*showQuestion() //richiamo la funzione per controllare il suo andamento*/
 const timerCount = function(count){ // quando si richiama la funzione passare i secondi 
-  let containerTimer = document.getElementById("timer")
+  let containerTimer = document.querySelector('#timer span')
   containerTimer.innerHTML = count
   time = setTimeout(update,1000)
   function update(){
