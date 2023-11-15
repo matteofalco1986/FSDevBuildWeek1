@@ -107,13 +107,13 @@ const questions = [
 
 /*RAMONA
 /*   timer()  *//* ho richiamato la funzione timer per controllare il suo andamento sulla pagina*/
-showQuestion() //richiamo la funzione per controllare il suo andamento
+//showQuestion() //richiamo la funzione per controllare il suo andamento
 
-let index = 0 //inizializzo indice che gestirà array questions
+/* let index = 0 //inizializzo indice che gestirà array questions
  let contIncorrect = 0 // inizializzo contatore domande errate verrà utilizzato nella funzione checkAnswer/timer
  let contCorrect = 0 // inizializzo contatore domande corrette
  let answerUser = ''
-
+ */
 //funzione crea domande
 /* LA FUNZIONE È UN DOPPIONE TRA QUANTO SCRITTO DA RAMONA E DA METHA. NE HO COMMENTATA UNA PER NON AVERE IL CONFLITTO, MA SCEGLIETE QUALE USARE
 
@@ -136,7 +136,7 @@ let index = 0 //inizializzo indice che gestirà array questions
   }
   */
 
-  //funzione timer countdown 60 secondi
+/*   //funzione timer countdown 60 secondi
   const timer = function(){
     let time 
     let count = 60
@@ -163,7 +163,7 @@ let index = 0 //inizializzo indice che gestirà array questions
         } // quando terminano i 60 secondi incremento l'indice per mostrare la domanda successiva
     }
 }
-timer()
+timer() */
 
  
   const checkAnswer = () =>{
@@ -199,9 +199,9 @@ const mexNelCerchio = (risposte) => {
     messaggio.innerHTML = "Test Fail <span>You didn't passed the exam.<span>"
   }
 }
- /* 
+  
  //funzione timer countdown 60 secondi
-  const timer = function(indexCount){ /* aggiunta di un argomento nella funzione timer per poter risettare facilmente il count */
+/* const timer = function(indexCount){ //aggiunta di un argomento nella funzione timer per poter risettare facilmente il count
   let time 
   let end
   let count = indexCount
@@ -215,8 +215,9 @@ const mexNelCerchio = (risposte) => {
       }else{
           end = "fine"
       }
-      return count /* importante aggiungere il return per tracciare il count */
+      return count //importante aggiungere il return per tracciare il count
   }
+} */
 
 
 //funzione che deseleziona 
@@ -288,7 +289,7 @@ const mexNelCerchio = (risposte) => {
     }
   }; */
   
-  const showQuestion = function () {
+ /* const showQuestion = function () {
     let currentQuestion = 0;
     let count = timer(60)
   
@@ -303,7 +304,7 @@ const mexNelCerchio = (risposte) => {
         answer[j].innerHTML =
           j === 0 ? questions[currentQuestion].correct_answer : questions[currentQuestion].incorrect_answers[j - 1];
   
-        /* answer[j].classList.remove("select"); */
+         //answer[j].classList.remove("select");
   
         answer[j].addEventListener("click", function (e) {
           deselezionaClasse();
@@ -323,8 +324,20 @@ const mexNelCerchio = (risposte) => {
     };
   
     showCurrentQuestion();
-  };
+  };*/
  
  
 /*   timer()  *//* ho richiamato la funzione timer per controllare il suo andamento sulla pagina*/
-showQuestion() //richiamo la funzione per controllare il suo andamento
+//showQuestion() //richiamo la funzione per controllare il suo andamento
+
+const showCurrentQuestion = (currentQuestion) =>{
+    const quest = document.getElementById("quest")
+    const countQuest = document.querySelector('#countQuestion span')
+    const thisQuestion = questions[currentQuestion].question // questa costante prende il valore della domanda attuale
+
+    quest.innerHTML = thisQuestion // mostro la domanda attuale nell'interfaccia
+
+    countQuest.innerHTML = currentQuestion + 1
+
+    return thisQuestion
+}
