@@ -107,7 +107,7 @@ const questions = [
 
 /*RAMONA
 /*   timer()  *//* ho richiamato la funzione timer per controllare il suo andamento sulla pagina*/
-showQuestion() //richiamo la funzione per controllare il suo andamento
+/*showQuestion() //richiamo la funzione per controllare il suo andamento
 
 let index = 0 //inizializzo indice che gestirà array questions
 let contIncorrect = 0 // inizializzo contatore domande errate verrà utilizzato nella funzione checkAnswer/timer
@@ -166,7 +166,7 @@ const showQuestion = function(i){// ogni domanda passo come parametro l'index di
 timer()*/
 
 
-const checkAnswer = () =>{
+/*const checkAnswer = () =>{
   let correctAns = questions[i].correct_answer
   if(answerUser == correctAns){
     contCorrect += 1;
@@ -182,9 +182,9 @@ const checkAnswer = () =>{
 
 const calcoloPercentuale = (risposte) => {
 const correct = risposte / 10 /* percentuale risposte corrette */
-const wrong = (10 - risposte) / 10 /* percentuale risposte sbagliate */
+/*const wrong = (10 - risposte) / 10 /* percentuale risposte sbagliate */
 
-return {
+/*return {
   correct,
   wrong
 }
@@ -192,17 +192,17 @@ return {
 
 const mexNelCerchio = (risposte) => {
 if (risposte > 5) { /* se la soglia è maggiore a la metà delle domande allora l'esame è superato */
-  const messaggio = document.querySelector('#circle h4')
+  /*const messaggio = document.querySelector('#circle h4')
   messaggio.innerHTML = 'Congratulation! <span>You passed the exam.<span>'
 } else { /* nel caso contrario il messagio sarà che l'esame non è stato superato */
-  const messaggio = document.querySelector('#circle h4')
+  /*const messaggio = document.querySelector('#circle h4')
   messaggio.innerHTML = "Test Fail <span>You didn't passed the exam.<span>"
 }
 }
 
 //funzione timer countdown 60 secondi
 const timer = function(indexCount){ /* aggiunta di un argomento nella funzione timer per poter risettare facilmente il count */
-let time 
+/*let time 
 let end
 let count = indexCount
 let containerTimer = document.querySelector('#timer span')
@@ -216,12 +216,12 @@ function update(){
         end = "fine"
     }
     return count /* importante aggiungere il return per tracciare il count */
-}
-}
+//}
+//}
 
 
 //funzione che deseleziona 
-const deselezionaClasse = function (){
+/*const deselezionaClasse = function (){
   const selezionati = document.querySelector(".select");
   if (selezionati){
       selezionati.classList.remove("select");
@@ -288,7 +288,7 @@ const deselezionaClasse = function (){
    
   }
 }; */
-showQuestion()
+/*showQuestion()
 const showQuestion = function () {
   let currentQuestion = 0;
   timer(60)
@@ -306,7 +306,7 @@ const showQuestion = function () {
 
       /* answer[j].classList.remove("select"); */
 
-      answer[j].addEventListener("click", function (e) {
+      /*answer[j].addEventListener("click", function (e) {
         deselezionaClasse();
         e.currentTarget.classList.add("select");
         //currentQuestion++;
@@ -325,7 +325,26 @@ const showQuestion = function () {
 
   showCurrentQuestion();
 };
+console.log(timer(60))
+*/
+
 
 
 /*   timer()  *//* ho richiamato la funzione timer per controllare il suo andamento sulla pagina*/
-showQuestion() //richiamo la funzione per controllare il suo andamento
+/*showQuestion() //richiamo la funzione per controllare il suo andamento*/
+const timerCount = function(count){ // quando si richiama la funzione passare i secondi 
+  let containerTimer = document.getElementById("timer")
+  containerTimer.innerHTML = count
+  time = setTimeout(update,1000)
+  function update(){
+      if(count>0){             
+        containerTimer.innerHTML = --count;
+        time = setTimeout(update,1000)
+        return true //restituirà true finchè il timer non raggiungerà lo 0
+      }else{        
+        clearInterval(count);
+        return false //restituisce false quando termina il timer
+      } 
+  }
+  
+}
