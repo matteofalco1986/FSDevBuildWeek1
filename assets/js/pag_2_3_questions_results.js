@@ -156,9 +156,9 @@ const questions = [
 
 //funzione che deseleziona 
   const deselezionaClasse = function (){
-    const selezionati = document.querySelector(".isSelected");
+    const selezionati = document.querySelector(".select");
     if (selezionati){
-        selezionati.classList.remove("isSelected");
+        selezionati.classList.remove("select");
     } 
   } 
   
@@ -179,7 +179,7 @@ const questions = [
         for (let i=0; i < answer.length; i++){  // ad ogni bottone assegno la classe di selezione e la rimuovo a gli altri elementi 
             answer.addEventListener("click", function(e){
                 deselezionaClasse()
-                answer.classList.add("isSelected");
+                answer.classList.add("select");
             })
         }
         if(count>0){ 
@@ -203,8 +203,8 @@ const questions = [
         answer[j].innerHTML =
           j === 0 ? questions[i].correct_answer : questions[i].incorrect_answers[j - 1];
   
-        // Rimuovi la classe isSelected da tutti i bottoni di risposta
-        answer[j].classList.remove("isSelected");
+        // Rimuovi la classe select da tutti i bottoni di risposta
+        answer[j].classList.remove("select");
   
         // Aggiungi un evento di ascolto per ciascun bottone di risposta
         answer[j].addEventListener("click", function (e) {
@@ -212,7 +212,7 @@ const questions = [
           deselezionaClasse();
   
           // Aggiungi la classe solo al bottone cliccato
-          e.currentTarget.classList.add("isSelected");
+          e.currentTarget.classList.add("select");
         });
       }
   
@@ -238,15 +238,15 @@ const questions = [
         answer[j].innerHTML =
           j === 0 ? questions[currentQuestion].correct_answer : questions[currentQuestion].incorrect_answers[j - 1];
   
-        answer[j].classList.remove("isSelected");
+        /* answer[j].classList.remove("select"); */
   
         answer[j].addEventListener("click", function (e) {
           deselezionaClasse();
-          e.currentTarget.classList.add("isSelected");
-          currentQuestion++;
+          e.currentTarget.classList.add("select");
+          //currentQuestion++;
   
           if (currentQuestion < questions.length) {
-            showCurrentQuestion();
+            showCurrentQuestion()
           } else {
             // Se hai completato tutte le domande, puoi fare qualcos'altro qui
             console.log("Hai completato tutte le domande!");
