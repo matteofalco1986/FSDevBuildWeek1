@@ -1,23 +1,4 @@
-const calcoloPercentuale = (risposte) => {
-  const correct = risposte/10 /* percentuale risposte corrette */
-  const wrong = (10-risposte)/10 /* percentuale risposte sbagliate */
-
-  return {
-      correct,
-      wrong
-  }
-}
-
-const mexNelCerchio = (risposte) => {
-  if(risposte > 5){ /* se la soglia è maggiore a la metà delle domande allora l'esame è superato */
-      const messaggio = document.querySelector('#circle h4')
-      messaggio.innerHTML = 'Congratulation! <span>You passed the exam.<span>'
-  }
-  else{ /* nel caso contrario il messagio sarà che l'esame non è stato superato */
-      const messaggio = document.querySelector('#circle h4')
-      messaggio.innerHTML = "Test Fail <span>You didn't passed the exam.<span>"
-  }
-}//funzioni pagina due scritte da Massimo e Ramona 
+//funzioni pagina due scritte da Massimo e Ramona 
 
 //array di oggetti di questiti
 const questions = [
@@ -133,14 +114,9 @@ let index = 0 //inizializzo indice che gestirà array questions
  let contCorrect = 0 // inizializzo contatore domande corrette
  let answerUser = ''
 
+//funzione crea domande
+/* LA FUNZIONE È UN DOPPIONE TRA QUANTO SCRITTO DA RAMONA E DA METHA. NE HO COMMENTATA UNA PER NON AVERE IL CONFLITTO, MA SCEGLIETE QUALE USARE
 
-//funzione che deseleziona 
-  const deselezionaClasse = function (){
-    const selezionati = document.querySelector(".select");
-    if (selezionati) selezionati.classList.remove("select");
-  } 
-  
-//funzione crea domande 
   const showQuestion = function(i){// ogni domanda passo come parametro l'index dichiarato e inizializzato alla riga 108 // dovrà essere incrementato al passare dei 60 secondi o al click del button nextQuestion
       const quest = document.getElementById("quest")  
       const answers = document.getElementsByClassName("answer")
@@ -158,6 +134,7 @@ let index = 0 //inizializzo indice che gestirà array questions
           })
         }              
   }
+  */
 
   //funzione timer countdown 60 secondi
   const timer = function(){
@@ -200,6 +177,28 @@ timer()
   }
 
 // FINE PARTE RAMONA
+
+// METHA
+
+const calcoloPercentuale = (risposte) => {
+  const correct = risposte / 10 /* percentuale risposte corrette */
+  const wrong = (10 - risposte) / 10 /* percentuale risposte sbagliate */
+
+  return {
+    correct,
+    wrong
+  }
+}
+
+const mexNelCerchio = (risposte) => {
+  if (risposte > 5) { /* se la soglia è maggiore a la metà delle domande allora l'esame è superato */
+    const messaggio = document.querySelector('#circle h4')
+    messaggio.innerHTML = 'Congratulation! <span>You passed the exam.<span>'
+  } else { /* nel caso contrario il messagio sarà che l'esame non è stato superato */
+    const messaggio = document.querySelector('#circle h4')
+    messaggio.innerHTML = "Test Fail <span>You didn't passed the exam.<span>"
+  }
+}
  /* 
  //funzione timer countdown 60 secondi
   const timer = function(indexCount){ /* aggiunta di un argomento nella funzione timer per poter risettare facilmente il count */
@@ -216,9 +215,9 @@ timer()
       }else{
           end = "fine"
       }
+      return count /* importante aggiungere il return per tracciare il count */
   }
-  return count /* importante aggiungere il return per tracciare il count */
-}
+
 
 //funzione che deseleziona 
   const deselezionaClasse = function (){
