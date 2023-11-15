@@ -12,11 +12,11 @@ const selectStar = function(indexStar){                             //funzione c
     }
 }
 
-function deselectorStar() {
-    for (let i in arrayStar){
-        if (arrayStar[i].classList.contains("starSelected")){
-            arrayStar[i].classList.remove("starSelected")
-            arrayStar[i].classList.add("starNotSelected")
+function deselectorStar() {                                        //funzione per deselezionare un numero di stelle definito                                      
+    for (let i in arrayStar){                                       //ciclo for per ciclare tutto l'array di stelle
+        if (arrayStar[i].classList.contains("starSelected")){       //confronto se la stella cliccata continene la classe selected
+            arrayStar[i].classList.remove("starSelected")           //allora rimuovo la classe selected
+            arrayStar[i].classList.add("starNotSelected")           //e gli aggiungo la classe non selected
         }
     }
 }
@@ -32,7 +32,7 @@ const createStar = function(){                                      //funzione c
         arrayStar[i] = imgStar
         imgStar.addEventListener("click", function (e){             //al click invoco funzioni per
             e.preventDefault()
-            deselectorStar()                                 //deselezionare tutte le stelle
+            deselectorStar()                                 //deseleziono un numero di stelle definito
             selectStar(imgStar)                                     //selezionare un numero di stelle definito
         })
     }

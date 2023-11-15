@@ -1,5 +1,3 @@
-//funzioni pagina due scritte da Massimo e Ramona 
-
 //array di oggetti di questiti
 let contIncorrect = 0 
 let contCorrect = 0 
@@ -107,11 +105,12 @@ const questions = [
   },
 ];
 
-const checkAnswer = function(userAnswer,correctAnswer){
-  if(userAnswer===correctAnswer){
-    contCorrect++
+//funzione per controlare se la risposta dell'utente e' corretta o sbagliata
+const checkAnswer = function(userAnswer,correctAnswer){     //prendo come argomenti la risposta dell'utente e la risposta esatts       
+  if(userAnswer===correctAnswer){                           //faccio un confronto tra le due
+    contCorrect++                                           //se coincidono faccio aumentare di 1 il contatore delle risposte esatte
   }else{
-    contIncorrect++
+    contIncorrect++                                         //altrimenti se non coincidono faccio aumentare di 1 il contatore delle risposte errate
   }
 }
 
