@@ -138,6 +138,17 @@ const questions = [
             time = setTimeout(update,1000)            
         }else{
             end = "fine"
+            // Fine del timer, passa automaticamente alla prossima domanda
+            end = "fine";
+            currentQuestion++;
+
+            if (currentQuestion < questions.length) {
+                // Se ci sono ancora domande, mostra la prossima domanda
+                showCurrentQuestion();
+            } else {
+                // Se hai completato tutte le domande, puoi fare qualcos'altro qui
+                console.log("Hai completato tutte le domande!");
+            }
         }
     }
     return count /* importante aggiungere il return per tracciare il count */
@@ -152,7 +163,7 @@ const questions = [
   } 
   
 //funzione crea domande 
-  const showQuestion = function(){
+/*   const showQuestion = function(){
     
     for(let i=0; i < questions.length; i++){ // ogni domanda
         let count = timer(60)
@@ -178,7 +189,77 @@ const questions = [
             //passiamo alla prossima domanda
         }               
     }
-  }
+  } */
+
+/*   const showQuestion = function () {
+    for (let i = 0; i < questions.length; i++) {
+      let count = timer(60);
+      const quest = document.getElementById("quest");
+      const answer = document.getElementsByClassName("answer");
+  
+      quest.innerHTML = questions[i].question;
+  
+      for (let j = 0; j < answer.length; j++) {
+        answer[j].innerHTML =
+          j === 0 ? questions[i].correct_answer : questions[i].incorrect_answers[j - 1];
+  
+        // Rimuovi la classe isSelected da tutti i bottoni di risposta
+        answer[j].classList.remove("isSelected");
+  
+        // Aggiungi un evento di ascolto per ciascun bottone di risposta
+        answer[j].addEventListener("click", function (e) {
+          // Deseleziona la classe da tutti i bottoni di risposta
+          deselezionaClasse();
+  
+          // Aggiungi la classe solo al bottone cliccato
+          e.currentTarget.classList.add("isSelected");
+        });
+      }
+  
+      const countQuest = document.querySelector('#countQuestion span');
+      countQuest.innerHTML = i + 1;
+  
+     
+    }
+  }; */
+  
+  const showQuestion = function () {
+    let currentQuestion = 0;
+    let count = timer(60)
+  
+    const quest = document.getElementById("quest");
+    const answer = document.getElementsByClassName("answer");
+    const countQuest = document.querySelector('#countQuestion span');
+  
+    const showCurrentQuestion = () => {
+      quest.innerHTML = questions[currentQuestion].question;
+  
+      for (let j = 0; j < answer.length; j++) {
+        answer[j].innerHTML =
+          j === 0 ? questions[currentQuestion].correct_answer : questions[currentQuestion].incorrect_answers[j - 1];
+  
+        answer[j].classList.remove("isSelected");
+  
+        answer[j].addEventListener("click", function (e) {
+          deselezionaClasse();
+          e.currentTarget.classList.add("isSelected");
+          currentQuestion++;
+  
+          if (currentQuestion < questions.length) {
+            showCurrentQuestion();
+          } else {
+            // Se hai completato tutte le domande, puoi fare qualcos'altro qui
+            console.log("Hai completato tutte le domande!");
+          }
+        });
+      }
+  
+      countQuest.innerHTML = currentQuestion + 1;
+    };
+  
+    showCurrentQuestion();
+  };
+ 
  
 /*   timer()  *//* ho richiamato la funzione timer per controllare il suo andamento sulla pagina*/
 showQuestion() //richiamo la funzione per controllare il suo andamento
