@@ -1,0 +1,9 @@
+.starNotSelected{
+    filter: invert(50%);
+}
+.starSelected{
+    filter: none;
+}
+.starNotSelected:hover , .starSelected:hover{
+    cursor: pointer;
+}
