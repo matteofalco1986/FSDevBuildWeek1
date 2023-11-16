@@ -107,6 +107,101 @@ const questions = [
   },
 ];
 
+/*RAMONA
+/*   timer()  *//* ho richiamato la funzione timer per controllare il suo andamento sulla pagina*/
+/*showQuestion() //richiamo la funzione per controllare il suo andamento
+
+let index = 0 //inizializzo indice che gestirà array questions
+let contIncorrect = 0 // inizializzo contatore domande errate verrà utilizzato nella funzione checkAnswer/timer
+let contCorrect = 0 // inizializzo contatore domande corrette
+let answerUser = ''
+
+//funzione crea domande
+/* LA FUNZIONE È UN DOPPIONE TRA QUANTO SCRITTO DA RAMONA E DA METHA. NE HO COMMENTATA UNA PER NON AVERE IL CONFLITTO, MA SCEGLIETE QUALE USARE
+
+const showQuestion = function(i){// ogni domanda passo come parametro l'index dichiarato e inizializzato alla riga 108 // dovrà essere incrementato al passare dei 60 secondi o al click del button nextQuestion
+    const quest = document.getElementById("quest")  
+    const answers = document.getElementsByClassName("answer")
+    quest.innerHTML = questions[i].question; //inserisco testo domanda
+    answers[0].innerHTML = questions[i].correct_answer // fino a riga 141 inserisco testo risposte in ogni contenitore con classe answer
+    answers[1].innerHTML = questions[i].incorrect_answers[0]
+    answers[2].innerHTML = questions[i].incorrect_answers[1]
+    answers[3].innerHTML = questions[i].incorrect_answers[2]
+    const countQuest = document.getElementById("countQuestions") 
+    countQuest.innerHTML = i+1 // nel paragrafo a piepagina inserisco l'indice dell'array di oggetti tiene il conto di ogni domanda 
+    for (let j1=0; j1 < answers.length; j1++){  // ad ogni bottone assegno la classe di selezione e la rimuovo a gli altri elementi 
+        answers[j].addEventListener("click", function(e){
+            deselezionaClasse()
+            answers[j1].classList.add("select");
+        })
+      }              
+}
+*/
+
+//funzione timer countdown 60 secondi
+/*const timer = function(){
+  let time 
+  let count = 60
+  let containerTimer = document.getElementById("timer")
+  containerTimer.innerHTML = count
+  time = setTimeout(update,1000)
+  function update(){
+      if(count>0){            
+          containerTimer.innerHTML = --count;
+        time = setTimeout(update,1000)
+          showQuestion(index)
+
+      }else{
+         // quando terminano i 60 secondi
+        answerUser = document.querySelector(".select");
+         //prendo la risposta selezionata dall'utente
+        if(answerUser){ // verifico che la classe sia stata assegnata almeno ad una risposta
+          checkAnswer() //true verifico se la risposta è corretta con la funzione apposita passando come parametro la risposta con la classe selezione 
+        }else{
+          contIncorrect +=1 //se non ha selezionato nessuna risposta incremento in automatico il contatore delle risposte errate             
+        } 
+        clearInterval(count);
+        index++;
+      } // quando terminano i 60 secondi incremento l'indice per mostrare la domanda successiva
+  }
+}
+timer()*/
+
+
+/*const checkAnswer = () =>{
+  let correctAns = questions[i].correct_answer
+  if(answerUser == correctAns){
+    contCorrect += 1;
+  }
+  else{
+    contIncorrect += 1;
+  }
+}
+
+// FINE PARTE RAMONA
+
+// METHA
+
+const calcoloPercentuale = (risposte) => {
+const correct = risposte / 10 /* percentuale risposte corrette */
+/*const wrong = (10 - risposte) / 10 /* percentuale risposte sbagliate */
+
+/*return {
+  correct,
+  wrong
+}
+}
+
+const mexNelCerchio = (risposte) => {
+if (risposte > 5) { /* se la soglia è maggiore a la metà delle domande allora l'esame è superato */
+  /*const messaggio = document.querySelector('#circle h4')
+  messaggio.innerHTML = 'Congratulation! <span>You passed the exam.<span>'
+} else { /* nel caso contrario il messagio sarà che l'esame non è stato superato */
+  /*const messaggio = document.querySelector('#circle h4')
+  messaggio.innerHTML = "Test Fail <span>You didn't passed the exam.<span>"
+}
+}
+
 // GLOBAL VARIABLES
 const numberOfQuestions = 10; // Numero domande
 let rightAnswersCounter = 0; //  Contatore risposte corrette
