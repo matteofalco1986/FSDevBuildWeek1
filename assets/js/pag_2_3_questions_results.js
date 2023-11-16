@@ -330,6 +330,8 @@ const mexNelCerchio = (risposte) => {
 /*   timer()  *//* ho richiamato la funzione timer per controllare il suo andamento sulla pagina*/
 //showQuestion() //richiamo la funzione per controllare il suo andamento
 
+
+//funzione seleziona la domanda 'attuale' e la stampa sulla pagina HTML
 const showCurrentQuestion = (currentQuestion) =>{
     const quest = document.getElementById("quest")
     const countQuest = document.querySelector('#countQuestion span')
@@ -337,7 +339,48 @@ const showCurrentQuestion = (currentQuestion) =>{
 
     quest.innerHTML = thisQuestion // mostro la domanda attuale nell'interfaccia
 
-    countQuest.innerHTML = currentQuestion + 1
+    countQuest.innerHTML = currentQuestion + 1 // va ad aggiornare il contatore di domande a fondo pagina
 
     return thisQuestion
 }
+
+//funzione che aggiunga la classe select alla risposta selezionata e mi ritorni la risposta selezionata
+const selectedAnswer = () =>{
+    // Seleziona tutti gli elementi con la classe "answer"
+    //PS: questa costante per un miglio funzionamento puo essere dichiarata fuori dalla funzione ed essere passata come argomento in questa funzione
+    const answers = document.querySelectorAll('.answer')
+    // Aggiungi un listener di clic a ciascuna risposta
+    for (let i = 0; i < answers.length; i++){
+        answers[i].addEventListener('click', function () {
+        // Rimuovi la classe 'select' da tutte le risposte
+        for (let j = 0; j < answers.length; j++) {
+            answers[j].classList.remove('select')
+        }
+
+        // Aggiungi la classe 'select' solo alla risposta cliccata
+        this.classList.add('select')
+
+        // Restituisci il testo della risposta selezionata
+        const selectedAnswerText = this.textContent
+        console.log(selectedAnswerText)
+    })
+  }
+  return selectedAnswerText
+}
+
+//funzione che ritorni la risposta corretta della domanda corrente
+const getCorrectAnswer = (currentQuestion) => {
+    // Verifica se l'indice fornito è valido
+    if (currentQuestion >= 0 && currentQuestion < questions.length){
+        // Estrai la domanda corrispondente all'indice fornito
+        const selectedQuestion = questions[currentQuestion]
+
+        // Restituisci la risposta corretta della domanda selezionata
+        return selectedQuestion.correct_answer
+    }else{
+        // Restituisci un messaggio di errore se l'indice non è valido
+        return "Indice non valido"
+    }
+}
+
+//selectedAnswer() //richiamo la funzione per vedere il suo andamento
