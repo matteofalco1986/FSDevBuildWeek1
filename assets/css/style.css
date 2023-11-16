@@ -7,3 +7,66 @@
 .starNotSelected:hover , .starSelected:hover{
     cursor: pointer;
 }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+}
+body{
+    background-image: url(bg.jpg);
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button{
+    margin-right: 50px;
+}
+.skill{                                                                         /* vengono settati tutti i contenitori del caso*/
+    width: 450px;
+    height: 450px;
+    position: relative;
+
+}
+.outer{
+    background: #d20094;
+    height: 450px;
+    width: 450px;
+    border-radius: 50%;
+    padding: 50px;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15);
+}
+.inner{
+    background-color: #25134f;
+    height: 350px;
+    width: 350px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+                inset -4px -4px 6px -1px rgba(182, 155, 155, 0.7),
+                0.5px 0.5px 0px rgba(255,255,255,0.15),
+                0px 12px 10px -10px rgba(0,0,0,0.05);
+}
+#number{                                                            /* viene settato il contenuto di number */
+    font-weight: 600;
+    color: #555;
+
+}
+circle{                                                             /* viene settato l'estetica del cerchio che riempie*/
+    fill: none;
+    stroke: #00ffff;
+    stroke-width: 58px;
+    stroke-dasharray: 1258;
+    stroke-dashoffset: 1258;
+}
+svg{  
+    position: absolute;
+    top: 0;
+    left: 0;
+}

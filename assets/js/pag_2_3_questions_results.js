@@ -116,3 +116,24 @@ const checkAnswer = function(userAnswer,correctAnswer){     //prendo come argome
 
 
 
+function percentuale(){                                                                 //funzione che prende la percentuale e stampaq se sei stato promnosso o bocciato
+  let numeroPercentuale = document.getElementById("numero").value
+  let number = document.getElementById("number")
+  let counter = 0
+  let risultato = document.createElement("p")
+  risultato.style.textAlign = "center"
+          if(numeroPercentuale > 59){
+              risultato.innerHTML = "promosso <br> blablabla <br> blabalbalbla"
+          }else{
+              risultato.innerHTML = "bocciato blabla <br> blablabal <br> balbla"
+          }
+  number.appendChild(risultato)
+  setStyle()
+}
+
+function setStyle(){                                                        //funzione per creare il raggio del cerchio
+  let numeroPercentuale = document.getElementById("numero").value
+  let cerchio =document.getElementById("cerchio")
+  let numeroXStroke = (1300-1300*(numeroPercentuale/100))
+  cerchio.style.strokeDashoffset = numeroXStroke
+}
