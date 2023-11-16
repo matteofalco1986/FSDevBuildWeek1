@@ -90,3 +90,33 @@
     <script src="assets/js/pag_2_3_questions_results.js"></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>progress bar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="form">                                                                         <!-- da eliminare dopo aver testato -->
+        <label for="numero">inserisci un numero</label>
+        <input type="number" min="1" max="100" id="numero" name="numero">
+        <button type="submit" onclick="percentuale()">clicca per la grafica</button>
+    </div>                                                                                  <!-- fino a qui -->
+    <div class="skill">
+        <div class="outer">
+            <div class="inner">
+                <div id="number">                                                               <!-- sono tutti contenitori che servono per la creazione e il contenimento dei cerchi -->
+                </div>
+            </div>
+        </div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="500px" height="500px">     <!-- viene creato effetivamente il cerchio -->
+            <circle cx="225" cy="225" r="195" stroke-linecap="round" id="cerchio"/>
+        </svg>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
