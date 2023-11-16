@@ -301,3 +301,26 @@ strong {
 .starNotSelected:hover , .starSelected:hover{
     cursor: pointer;
 }
+
+/*PAGE 5*/
+
+#thanksFeedback {
+    font-size: 2em;
+    padding: 0em 4em;
+    width: 50%;
+    margin: auto;
+    margin-top: 6em;
+}
+
+#thanksFeedback h1{
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+#thanksFeedback p {
+    color: #E7E7EB;
+    font-size: 0.8em;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    color: #B7B9C5;
+}
