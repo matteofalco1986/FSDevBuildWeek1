@@ -107,25 +107,20 @@ const questions = [
   },
 ];
 
-// RAMONA
-
-
-/* ho richiamato la funzione timer per controllare il suo andamento sulla pagina*/
-// showQuestion() //richiamo la funzione per controllare il suo andamento
-
-let index = 0 //inizializzo indice che gestirà array questions
- let contIncorrect = 0 // inizializzo contatore domande errate verrà utilizzato nella funzione checkAnswer/timer
- let contCorrect = 0 // inizializzo contatore domande corrette
- let answerUser = ''
-
-
-// FINE PARTE RAMONA
+// VARIABILI GLOBALI
+let rightAnswersCounter = 0; //  Contatore risposte corrette
+let wrongAnswersCounter = 0; //  Contatore risposte sbagliate
+let questionsCounter = 0; //  Contatore domande
+const timerCounter = 10;
+let userAnswer = '';  //  Risposta utente
+let rightAnswer = ''; //  Risposta corretta
+const numberOfQuestions = 4; // Numero domande
 
 // METHA
 
-const calcoloPercentuale = (risposte) => {
+const calcoloPercentuale = (risposte, domande) => {
   const correct = risposte / 10 /* percentuale risposte corrette */
-  const wrong = (10 - risposte) / 10 /* percentuale risposte sbagliate */
+  const wrong = (domande - risposte) / 10 /* percentuale risposte sbagliate */
 
   return {
     correct,
@@ -143,59 +138,8 @@ const mexNelCerchio = (risposte) => {
   }
 }
 
-function update(){
-  if(count>0){
-      containerTimer.innerHTML = --count
-      time = setTimeout(update,1000)            
-  }else{
-      end = "fine"
-    }
-  return count // importante aggiungere il return per tracciare il counter
-}
-
-//funzione timer countdown 60 secondi
-const timer = function(indexCount){ /* aggiunta di un argomento nella funzione timer per poter risettare facilmente il count */
-  let time 
-  let end
-  let count = indexCount
-  let containerTimer = document.querySelector('#timer span')
-  containerTimer.innerHTML = count
-  time = setTimeout(update,1000)
-}
-
-//funzione che deseleziona 
-const deselezionaClasse = function (){
-  const selezionati = document.querySelector(".select");
-  if (selezionati){
-      selezionati.classList.remove("select");
-  } 
-}
-  
-// Controlla che la risposta utente sia corretta. Incrementa i contatori relativi.
-const checkAnswer = function(userAnswer,correctAnswer){
-  if (userAnswer === correctAnswer) {
-    return true;
-  }
-  return false;
-}
-
 // Ritorna true fintanto che il timer è maggiore di 0. Altrimenti ritorna falso.
-const timerCount = function(count){ // quando si richiama la funzione passare i secondi 
-  let containerTimer = document.querySelector('#timer span')
-  containerTimer.innerHTML = count
-  time = setTimeout(update,1000)
-  function update(){
-      if(count>0){             
-        containerTimer.innerHTML = --count;
-        time = setTimeout(update,1000)
-        return true //restituirà true finchè il timer non raggiungerà lo 0
-      }else{        
-        clearInterval(count);
-        return false //restituisce false quando termina il timer
-      } 
-  }
-  
-}
+
 
 // Ritorna la domanda corrente e la inietta nell'HTML
 const showCurrentQuestion = (currentQuestion) => {
@@ -206,17 +150,17 @@ const showCurrentQuestion = (currentQuestion) => {
   return thisQuestion;
 }
 
-const nextQuestion = function (){
-}
-
 // Mostra i risultati e nasconde il questionario
 const showResults = () => {
   let toHide = document.getElementById("pageTwo");
   toHide.classList.add("hidePage");
   let toDisplay = document.getElementById("pageThree");
   toDisplay.classList.remove("hidePage");
+  let timer = document.querySelector("#timer p");
+  timer.classList.add("hideContainer");
 }
 
+// Inietta le risposte nell'HTML
 const injectAnswers = (answersArray) => {
   let answersContainers = document.getElementsByClassName("answer");
   for (let i = 0; i < answersArray.length; i++) {
@@ -224,6 +168,7 @@ const injectAnswers = (answersArray) => {
   }
 }
 
+// Inietta le risposte
 const injectQuestionNumber = (index) => {
   questionNumber = document.getElementById("questionNumber");
   questionNumber.innerText = index;
@@ -315,29 +260,38 @@ const injectToResults = (rightAnswer, wrongAnswer, numberOfQuestions) => {
 
 const pageTwoLoad = () => {
   questionnaire();
-      // Controllare valore timer. Se è zero:
-      //  Incrementare questionCounter
-      //  Incrementare wrongAnswers
-      // Controllare se il pulsante "Prossima è stato premuto"
 }
-
 window.onload = (e) => {
   pageTwoLoad();
 }
 
 
-// VARIABILI GLOBALI
-let rightAnswersCounter = 0; //  Contatore risposte corrette
-let wrongAnswersCounter = 0; //  Contatore risposte sbagliate
-let questionsCounter = 0; //  Contatore domande
-let userAnswer = '';  //  Risposta utente
-let rightAnswer = ''; //  Risposta corretta
-const numberOfQuestions = 4; // Numero domande
-const prossimaBtn = document.getElementById("nextQuestContainer")
+
+const timerCount = function(count){ // quando si richiama la funzione passare i secondi 
+  let containerTimer = document.querySelector('#timer span');
+  containerTimer.innerHTML = count;
+  let time = setTimeout(update,1000)
+  function update(){
+      if(count>0){             
+        containerTimer.innerHTML = --count;
+        time = setTimeout(update,1000);
+      }else{        
+        clearTimeout(time);
+        wrongAnswersCounter++;
+        questionsCounter++;
+        questionnaire();
+    } 
+  }
+}
+
+const prossimaBtn = document.getElementById("nextQuestContainer");
 prossimaBtn.addEventListener("click", function(){
+  // Verifica che ci sia una risposta selezionata
   if (document.getElementsByClassName('select').length === 0){
     alert("Seleziona una risposta per procedere")
   } else {
+    // clearInterval(timerCount);
+    // Controlla se le risposta è giusta
     if (userAnswer === rightAnswer){
       rightAnswersCounter++;
       questionsCounter++;
@@ -349,11 +303,13 @@ prossimaBtn.addEventListener("click", function(){
     }
   }
 })
+
+
+
+
+
 const questionnaire = function(){
-  // Controlla che il counter delle domande non sia maggiore di 10
-  if (questionsCounter >= numberOfQuestions){
-    showResults();
-  }
+  timerCount(15);
   // Resetta le classi selected
   if(document.getElementsByClassName('select').length > 0){
     resetSelectClasses("select");
@@ -393,6 +349,11 @@ const questionnaire = function(){
     })
   }
   injectToResults(rightAnswersCounter, wrongAnswersCounter, numberOfQuestions);
+  // Controlla che il counter delle domande non sia maggiore di 10
+  if (questionsCounter >= numberOfQuestions){
+    showResults();
+    return;
+  }
 }
 
 
