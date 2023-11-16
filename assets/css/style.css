@@ -272,15 +272,15 @@ strong {
     font-weight: bold;    
 }
 
-#PageThree {
+#pageThree {
     font-size: 1.5em;
 }
 
-#PageThree div:first-child {
+#pageThree div:first-child {
     padding-bottom: 3%;
 }
 
-#PageThree h2 {
+#pageThree h2 {
     font-size: 60px;
 }
 
@@ -300,8 +300,6 @@ strong {
     color: white;
 
 }
-
-
 
 /* PAGE 4 */
 
