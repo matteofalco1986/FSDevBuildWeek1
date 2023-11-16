@@ -15,6 +15,7 @@ body {
     background-image: url('../images/bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     text-align: center;
     line-height: 1.4;
 }
@@ -39,7 +40,7 @@ header {
 
 /* PAGE 1 */ 
 
-h1, h2 {
+h1, h2, h3 {
     font-family: 'Outfit', sans-serif;
 }
 
@@ -234,12 +235,29 @@ strong {
     display: inline-block;
 }
 
-.testOutcomeText p span {
+
+.testOutcomeText {
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+}
+
+.passedOutcome {
+    display: block;
     color: #00FFFF;
+}
+
+.failedOutcome {
+    display: block;
+    color: #D20094;
 }
 
 .textInsideCircle {
     max-width: 320px;
+}
+.textInsideCircle{
+    font-size: 0.5em;
+    max-width: 200px;
 }
 
 .leftBox {
@@ -248,13 +266,15 @@ strong {
     line-height: 1;
 }
 
-.leftBox h3{
-    font-size:55px;
+.leftBox h3, .rightBox h3{
+    font-size: 50px;
+    font-weight: 400;
 }
 
-.leftBox h3 span {
-    font-size: 50px;
-    font-weight: bold;
+.leftBox p, .rightBox p {
+    padding: 0.1em 0em;
+    font-weight: 700;
+    font-size: 45px;
 }
 
 .rightBox {
@@ -263,13 +283,10 @@ strong {
     line-height: 1;
 }
 
-.rightBox h3{
-    font-size:55px;    
-}
-
-.rightBox h3 span {
-    font-size: 50px;
-    font-weight: bold;    
+.outOfRecap > *, .leftBox p:last-of-type, .rightBox p:last-of-type{
+    font-weight: 400;
+    font-size: 0.8em;
+    color: #B7B9C5;
 }
 
 #pageThree {
@@ -282,23 +299,27 @@ strong {
 
 #pageThree h2 {
     font-size: 60px;
+    line-height: 1;
 }
 
-#rateUsContainer {
+#rateUsBtn{
     text-transform: uppercase;
-    font-weight: bold;
-    border: solid 1px;
-    border-color: #34f9f9;
-    box-shadow: #37ffff 1px 1px 10px 1px;
-    padding: 2%;
-    margin: 5% 37%;
-
+    text-decoration: none;
+    font-weight: 700;
+    border-style: solid;
+    border-color: #B7B9C5;
+    border-radius: 2px;
+    background: transparent;
+    padding: 0.7em 2.5em; 
+    color: #B7B9C5;
+    box-shadow: #37ffff31 1px 1px 10px 4px;
+    font-size: 1.3rem;
+    margin-top: 100px;
 }
 
-#rateUsContainer a {
-    text-decoration: none;
-    color: white;
-
+#rateUsBtn:hover{
+    background-color: #b7b9c527;
+    cursor: pointer;
 }
 
 /* PAGE 4 */

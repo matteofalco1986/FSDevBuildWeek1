@@ -108,25 +108,45 @@ const questions = [
 ];
 
 // GLOBAL VARIABLES
+const numberOfQuestions = 10; // Numero domande
 let rightAnswersCounter = 0; //  Contatore risposte corrette
 let wrongAnswersCounter = 0; //  Contatore risposte sbagliate
 let questionsCounter = 0; //  Contatore domande
-const timerCounter = 2;
-let count = timerCounter;
+const timerCounter = 5;   // Tempo per rispondere a ogni domanda
+let count = timerCounter; //  Numero del conto alla rovescia
 let userAnswer = '';  //  Risposta utente
 let rightAnswer = ''; //  Risposta corretta
-const numberOfQuestions = 4; // Numero domande
-let timer = 0;
+let timer = 0;  //  Variabile per il timer del conto alla rovescia
 
-// METHA
+// Inietta testo e cambia messaggio e colore del testo a seconda del risultato
+const injectOutcomeMessage = (rightAnswersCounter, numberOfQuestions) => {
+  const testOutcomeText = document.querySelector(".testOutcomeText p");
+  const coloredMessage = document.querySelector(".passedOutcome");
+  const outcomeDescription = document.querySelectorAll(".outcomeDescription p");
+  const passedMessage = 'Congratulations!';
+  const passedSubtitle = 'You passed the exam.';
+  const passedDescrOne = "We'll send you the certificate in few minutes.";
+  const passedDescrTwo = "Check your email (including promotions / spam folder)";
+  const failedMessage = 'You shall not pass!';
+  const failedSubtitle = "Go back to the shadow.";
+  const failedDescrOne = "Gandalf staggered and fell, grasped vainly at the stone and slid into the abyss";
+  const failedDescrTwo = "He whispered sofly: 'Fly, you fools!'";
 
-const mexNelCerchio = (risposte, numberOfQuestions) => {
-  const messaggio = document.querySelector('#circle h4')
-  if (risposte > numberOfQuestions / 2) { /* se la soglia è maggiore a la metà delle domande allora l'esame è superato */
-  messaggio.innerHTML = 'Congratulation! <span>You passed the exam.<span>'
-} else { /* nel caso contrario il messagio sarà che l'esame non è stato superato */
-    const messaggio = document.querySelector('#circle h4')
-    messaggio.innerHTML = "Test Fail <span>You didn't passed the exam.<span>"
+  if ((rightAnswersCounter * 100 / numberOfQuestions) > 50) {
+    // Mostra messaggio passato
+    testOutcomeText.textContent = passedMessage;
+    coloredMessage.innerText = passedSubtitle;
+    outcomeDescription[0].innerText = passedDescrOne;
+    outcomeDescription[1].innerText = passedDescrTwo;
+} else {
+    // Mostra messaggio fallito
+    testOutcomeText.innerText = failedMessage;
+    coloredMessage.classList.add("failedOutcome");
+    coloredMessage.classList.remove("passedOutcome");
+    coloredMessage.innerText = failedSubtitle;
+    outcomeDescription[0].innerText = failedDescrOne;
+    outcomeDescription[1].innerText = failedDescrTwo;
+
   }
 }
 // Calcola e inietta le percentuali nella pagina dei risultati
@@ -159,6 +179,8 @@ const showResults = () => {
   let timer = document.querySelector("#timer p");
   timer.classList.add("hideContainer");
   injectPercentages(rightAnswersCounter, wrongAnswersCounter);
+  injectToResults(rightAnswersCounter, wrongAnswersCounter, numberOfQuestions);
+  injectOutcomeMessage(rightAnswersCounter, numberOfQuestions);
 }
 
 // Inietta le risposte nell'HTML
@@ -310,16 +332,17 @@ const setTimer = () => {
   }
 }
 
-
-
-
-
-const questionnaire = function(){
+const questionnaire = () => {
+  if (questionsCounter >= numberOfQuestions){
+    showResults();
+    clearTimeout(timer);
+    return;
+  }
   // Reset e avvio del timer
   clearTimeout(timer)
   count = timerCounter;
   setTimer()
-
+  
   // Reset delle classi selected
   if(document.getElementsByClassName('select').length > 0){
     resetSelectClasses("select");
@@ -358,16 +381,11 @@ const questionnaire = function(){
       userAnswer = selectedAnswerText;
     })
   }
-  injectToResults(rightAnswersCounter, wrongAnswersCounter, numberOfQuestions);
-
-  // Controlla che il counter delle domande non sia maggiore di 10
-  if (questionsCounter >= numberOfQuestions){
-
-    showResults();
-    clearTimeout(timer);
-    return;
-  }
 }
+
+
+
+
 
 
 
