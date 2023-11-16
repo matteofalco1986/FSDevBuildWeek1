@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="A feedback page to tell us what you think. At Epicode we value your feedback as much as your education. Tell us how to improve">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>EPICODE - Feedback</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="pageContent">
+        <header>
+            <img src="assets/images/epicode_logo.png" alt="Logo Epicode" id="logo">
+        </header>
+        <div id="feedbackPage">
+            <main>
+                <section id="tellUs">
+                    <div>
+                        <h2>Tell us how it's going</h2>
+                        <p>From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?</p>
+                    </div>
+                    <div id="rateStar">                                                                                 <!-- setto una classe al div per creare tramite js il rate con  le stelle-->
+        
+                    </div>
+                </section>
+                <section id="feedback">
+                    <p>Leave us an open feedback about your experience so far</p>
+                    <input type="text" placeholder="Write your comment here" minlength="20" maxlength="90">                                            <!-- creo un'area di input -->
+                </section>
+                <form action="https://epicode.com/" target="_blank">                                                     <!-- creo un form con un pulsante in modo tale che se clicco il  -->
+                    <button type="submit" id="moreInfoBtn">more info</button>                                                             <!-- pulsante vado nel sito indicato nell'action del form-->
+                </form>
+            </main>
+        </div>
+   </div>
+    <script src="assets/js/pag_4_feedback.js"></script>
+</body>
+</html>
