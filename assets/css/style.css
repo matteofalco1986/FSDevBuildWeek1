@@ -234,6 +234,69 @@ strong {
     color: #00FFFF;
 }
 
+.textInsideCircle {
+    max-width: 320px;
+}
+
+.leftBox {
+    margin-right: 15%;
+    text-align: left;
+    line-height: 1;
+}
+
+.leftBox h3{
+    font-size:55px;
+}
+
+.leftBox h3 span {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.rightBox {
+    margin-left: 15%;
+    text-align: right;
+    line-height: 1;
+}
+
+.rightBox h3{
+    font-size:55px;    
+}
+
+.rightBox h3 span {
+    font-size: 50px;
+    font-weight: bold;    
+}
+
+#PageThree {
+    font-size: 1.5em;
+}
+
+#PageThree div:first-child {
+    padding-bottom: 3%;
+}
+
+#PageThree h2 {
+    font-size: 60px;
+}
+
+#rateUsContainer {
+    text-transform: uppercase;
+    font-weight: bold;
+    border: solid 1px;
+    border-color: #34f9f9;
+    box-shadow: #37ffff 1px 1px 10px 1px;
+    padding: 2%;
+    margin: 5% 37%;
+
+}
+
+#rateUsContainer a {
+    text-decoration: none;
+    color: white;
+
+}
+
 
 
 /* PAGE 4 */

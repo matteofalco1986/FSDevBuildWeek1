@@ -362,10 +362,10 @@ const selectedAnswer = () =>{
 
         // Restituisci il testo della risposta selezionata
         const selectedAnswerText = this.textContent
+        element = selectedAnswerText
         console.log(selectedAnswerText)
     })
   }
-  return selectedAnswerText
 }
 
 //funzione che ritorni la risposta corretta della domanda corrente
