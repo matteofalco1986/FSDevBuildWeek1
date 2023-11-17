@@ -378,11 +378,17 @@ strong {
 
 /* CLASSI DOMENICO */
 
+.starNotSelected, .starSelected{
+    margin-left: 15px;
+}
+
 .starNotSelected{
-    filter: invert(50%);
+    filter: hue-rotate(90deg) blur(1px) brightness(0.4) contrast(100%);
+    opacity: 0.6;
 }
 .starSelected{
-    filter: none;
+    fill: #00FFFF;
+    filter: blur(0.8px);
 }
 .starNotSelected:hover , .starSelected:hover{
     cursor: pointer;
