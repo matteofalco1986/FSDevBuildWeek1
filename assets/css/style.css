@@ -136,15 +136,15 @@ input[type="checkbox"] {
     
 }
 
-input[type="checkbox"]:checked:before {
-content: "\2714";
-line-height: 10px;
-text-align: center;
-font-size: 20px;
-color: #dcdeea;
-border-radius: 2px;
-width: 20px;
-height: 20px;
+    input[type="checkbox"]:checked:before {
+    content: "\2714";
+    line-height: 10px;
+    text-align: center;
+    font-size: 20px;
+    color: #dcdeea;
+    border-radius: 2px;
+    width: 20px;
+    height: 20px;
 
 
 }
@@ -276,6 +276,15 @@ label:hover, #allowProceed:hover{
     font-weight: 700;
     font-size: 1.5em;
     margin-bottom: 1rem;
+}
+
+.textInsideCircle {
+    padding-top: 1em;
+}
+
+.outcomeDescription {
+    font-size: 1.1em;
+    padding-top: 0.5em;
 }
 
 .passedOutcome {

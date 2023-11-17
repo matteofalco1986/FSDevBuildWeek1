@@ -108,7 +108,7 @@ const questions = [
 ];
 
 // GLOBAL VARIABLES
-const numberOfQuestions = 7; // Numero domande
+const numberOfQuestions = 10; // Numero domande
 const timerCounter = 60;   // Tempo per rispondere a ogni domanda
 let count = timerCounter; //  Numero del conto alla rovescia
 let rightAnswersCounter = 0; //  Contatore risposte corrette
@@ -292,6 +292,7 @@ const injectToResults = (rightAnswer, wrongAnswer, numberOfQuestions) => {
 const pageTwoLoad = () => {
   questionnaire();
 }
+
 window.onload = (e) => {
   pageTwoLoad();
 }
