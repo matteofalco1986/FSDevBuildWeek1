@@ -15,6 +15,7 @@ body {
     background-image: url('../images/bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     text-align: center;
     line-height: 1.4;
 }
@@ -39,7 +40,7 @@ header {
 
 /* PAGE 1 */ 
 
-h1, h2 {
+h1, h2, h3 {
     font-family: 'Outfit', sans-serif;
 }
 
@@ -137,7 +138,7 @@ strong {
 #quest {
     font-weight: 400;
     padding: 0em 1em 1em 1em;
-    font-size: 60px;
+    font-size: 40px;
     color: #EBE8EE;
     line-height: 1;
 }
@@ -165,6 +166,10 @@ strong {
 .answerContainer:hover {
     background: rgba(255, 255, 255, 0.256);
     cursor: pointer;
+}
+
+.select:hover{
+    background-image: linear-gradient(180deg, #D20094, #900080);
 }
 
 
@@ -222,7 +227,7 @@ strong {
 
 /* PAGE 3 */
 
-.hidePage {
+.hidePage, .hideContainer {
     display: none;
 }
 
@@ -230,11 +235,92 @@ strong {
     display: inline-block;
 }
 
-.testOutcomeText p span {
+
+.testOutcomeText {
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+}
+
+.passedOutcome {
+    display: block;
     color: #00FFFF;
 }
 
+.failedOutcome {
+    display: block;
+    color: #D20094;
+}
 
+.textInsideCircle {
+    max-width: 320px;
+}
+.textInsideCircle{
+    font-size: 0.5em;
+    max-width: 200px;
+}
+
+.leftBox {
+    margin-right: 15%;
+    text-align: left;
+    line-height: 1;
+}
+
+.leftBox h3, .rightBox h3{
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.leftBox p, .rightBox p {
+    padding: 0.1em 0em;
+    font-weight: 700;
+    font-size: 45px;
+}
+
+.rightBox {
+    margin-left: 15%;
+    text-align: right;
+    line-height: 1;
+}
+
+.outOfRecap > *, .leftBox p:last-of-type, .rightBox p:last-of-type{
+    font-weight: 400;
+    font-size: 0.8em;
+    color: #B7B9C5;
+}
+
+#pageThree {
+    font-size: 1.5em;
+}
+
+#pageThree div:first-child {
+    padding-bottom: 3%;
+}
+
+#pageThree h2 {
+    font-size: 60px;
+    line-height: 1;
+}
+
+#rateUsBtn{
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    border-style: solid;
+    border-color: #B7B9C5;
+    border-radius: 2px;
+    background: transparent;
+    padding: 0.7em 2.5em; 
+    color: #B7B9C5;
+    box-shadow: #37ffff31 1px 1px 10px 4px;
+    font-size: 1.3rem;
+    margin-top: 100px;
+}
+
+#rateUsBtn:hover{
+    background-color: #b7b9c527;
+    cursor: pointer;
+}
 
 /* PAGE 4 */
 
@@ -305,7 +391,6 @@ strong {
 /*PAGE 5*/
 
 #thanksFeedback {
-    font-size: 2em;
     padding: 0em 4em;
     width: 50%;
     margin: auto;
@@ -313,14 +398,46 @@ strong {
 }
 
 #thanksFeedback h1{
-    margin-bottom: 15px;
+    margin-top: 15rem;
+    font-size: 60px;
     font-weight: 500;
 }
 
 #thanksFeedback p {
     color: #E7E7EB;
-    font-size: 0.8em;
+    font-size: 1.5em;
     margin-bottom: 2rem;
     font-weight: 300;
     color: #B7B9C5;
 }
+
+/*formattazione cerchio timer*/
+.circle,
+.wraper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.container {
+  width: 500px;
+  border-radius: 10px;
+}
+
+.circle{
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background-color: #37ffff;
+  background: conic-gradient(#37ffff 3.6deg, #ededed 0deg);
+
+}
+.wraper{
+  width: 95px;
+  height: 95px;
+  background-image: url(../images/bg_timer.png);
+  border-radius: 50%;
+}
+
+

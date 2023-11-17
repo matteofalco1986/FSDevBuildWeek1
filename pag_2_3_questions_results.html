@@ -15,14 +15,18 @@
     <div class="pageContent">
         <header>
             <img src="assets/images/epicode_logo.png" alt="epicode_logo" id="logo">
-            <div id="timer">
-                <p>seconds <br>
-                <span>60</span>
-                <br> remaining</p>
+            <div id="timer"><!--  modificato html per l'inserimento del timer grafico-->
+                <div class="container">
+                    <div class="circle">
+                        <div class="wraper">
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
             </div> <!-- timer 60 secondi-->
         </header>
        <main>
-            <section id="PageTwo"> <!-- pagina 2 -->
+            <section id="pageTwo"> <!-- pagina 2 -->
                 <div class="challenge">
                     <div class="questionContainer">
                         <h2 id="quest">How can I create a checkbox in HTML?</h2>
@@ -43,39 +47,46 @@
                 </div>
                 <div class=bottomPage>
                     <div id="countQuestions">
-                        <p>question <span>1</span><span class="outOf"> / 10</span></p> <!-- lo span conterrà il contatore delle domande innietato tramite js-->
+                        <p>question <span id="questionNumber">1</span> / <span class="outOf">10</span></p> <!-- lo span conterrà il contatore delle domande innietato tramite js-->
                     </div>
                     <div id="nextQuestContainer">
                         <p id="nextQuest">prossima &#8594;</p>
                     </div>
                 </div>
             </section>
-            <section id="PageThree"> <!-- pagina 3 -->
+            <section id="pageThree" class="hidePage"> <!-- pagina 3 -->
                 <div>
                     <h2>Results</h2>
                     <p>The summary of your answers:</p>
                 </div>
                 <div class="results">
                     <div class="leftBox">
-                        <h3>Correct<span></span></h3>
-                        <p></p>
+                        <h3>Correct</h3>
+                        <p><span class="percent">60</span>%</p>
+                        <p class="outOfRecap"><span id="rightAnswers"></span> / <span class="outOf">10</span> questions</p>
                     </div>
                     <div id="circle"> <!-- cerchio con percentuali e scritte -->
                         <div class="textInsideCircle">
                             <div class="testOutcomeText">
-                                <p>Congratulations!<span>You passed the exam</span></p>
+                                <p>Congratulations!</p>
+                                <p class="passedOutcome">You passed the exam.</p>
                             </div>
-                            <p>We'll send you the certificate in few minutes.
-                            Check your email (including promotions / spam folder)</p>
+                            <div class="outcomeDescription">
+                                <p>We'll send you the certificate in few minutes.</p>
+                                <p>Check your email (including promotions / spam folder)</p>
+                            </div>
                         </div>
                     </div>
                     <div class="rightBox">
-                        <h3>Wrong<span></span>%</h3>
-                        <p></p>
+                        <h3>Wrong</h3>
+                        <p><span class="percent">40</span>%</p>
+                        <p class="outOfRecap"><span id="wrongAnswers">1</span> / <span class="outOf">10</span> questions</p>
                     </div>
                 </div>
-                <div id="rateUsContainer">
-                    <a href="pag_4_feedback.html">rate us</a>
+                <div id="rateUsContainer" type="">
+                    <form action="pag_4_feedback.html">    
+                        <button type="submit" id="rateUsBtn">rate us</button>
+                    </form>
                 </div>
             </section>
        </main>
