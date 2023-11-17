@@ -386,7 +386,7 @@ label:hover, #allowProceed:hover{
     font-size: 1.7rem;
 }
 
-#feedback input {
+#leaveFeedback {
     background-color: transparent;
     border: transparent;
     border-bottom-width: 2px;
