@@ -108,36 +108,36 @@ const questions = [
 ];
 
 // GLOBAL VARIABLES
-const numberOfQuestions = 10; // Numero domande
+const numberOfQuestions = 7; // Numero domande
+const timerCounter = 60;   // Tempo per rispondere a ogni domanda
+let count = timerCounter; //  Numero del conto alla rovescia
 let rightAnswersCounter = 0; //  Contatore risposte corrette
 let wrongAnswersCounter = 0; //  Contatore risposte sbagliate
 let questionsCounter = 0; //  Contatore domande
-const timerCounter = 20;   // Tempo per rispondere a ogni domanda
-let count = timerCounter; //  Numero del conto alla rovescia
 let userAnswer = '';  //  Risposta utente
 let rightAnswer = ''; //  Risposta corretta
 let timer = 0;  //  Variabile per il timer del conto alla rovescia
 
 // Inietta testo e cambia messaggio e colore del testo a seconda del risultato
 const injectOutcomeMessage = (rightAnswersCounter, numberOfQuestions) => {
-  const testOutcomeText = document.querySelector(".testOutcomeText p");
-  const coloredMessage = document.querySelector(".passedOutcome");
-  const outcomeDescription = document.querySelectorAll(".outcomeDescription p");
-  const passedMessage = 'Congratulations!';
-  const passedSubtitle = 'You passed the exam.';
-  const passedDescrOne = "We'll send you the certificate in few minutes.";
-  const passedDescrTwo = "Check your email (including promotions / spam folder)";
-  const failedMessage = 'You shall not pass!';
-  const failedSubtitle = "Go back to the shadow.";
-  const failedDescrOne = "Gandalf staggered and fell, grasped vainly at the stone and slid into the abyss";
-  const failedDescrTwo = "He whispered sofly: 'Fly, you fools!'";
+const testOutcomeText = document.querySelector(".testOutcomeText p");
+const coloredMessage = document.querySelector(".passedOutcome");
+const outcomeDescription = document.querySelectorAll(".outcomeDescription p");
+const passedMessage = 'Congratulations!';
+const passedSubtitle = 'You passed the exam.';
+const passedDescrOne = "We'll send you the certificate in few minutes.";
+const passedDescrTwo = "Check your email (including promotions / spam folder)";
+const failedMessage = 'You shall not pass!';
+const failedSubtitle = "Go back to the shadow.";
+const failedDescrOne = "Gandalf staggered and fell, grasped vainly at the stone and slid into the abyss";
+const failedDescrTwo = "He whispered sofly: 'Fly, you fools!'";
 
-  if ((rightAnswersCounter * 100 / numberOfQuestions) > 50) {
-    // Mostra messaggio passato
-    testOutcomeText.textContent = passedMessage;
-    coloredMessage.innerText = passedSubtitle;
-    outcomeDescription[0].innerText = passedDescrOne;
-    outcomeDescription[1].innerText = passedDescrTwo;
+if ((rightAnswersCounter * 100 / numberOfQuestions) > 50) {
+  // Mostra messaggio passato
+  testOutcomeText.textContent = passedMessage;
+  coloredMessage.innerText = passedSubtitle;
+  outcomeDescription[0].innerText = passedDescrOne;
+  outcomeDescription[1].innerText = passedDescrTwo;
 } else {
     // Mostra messaggio fallito
     testOutcomeText.innerText = failedMessage;
@@ -146,14 +146,15 @@ const injectOutcomeMessage = (rightAnswersCounter, numberOfQuestions) => {
     coloredMessage.innerText = failedSubtitle;
     outcomeDescription[0].innerText = failedDescrOne;
     outcomeDescription[1].innerText = failedDescrTwo;
-
   }
 }
 // Calcola e inietta le percentuali nella pagina dei risultati
 const injectPercentages = (rightAnswersCounter, wrongAnswersCounter) => {
   const percentObjects = document.getElementsByClassName("percent");
-  const percentageRight = rightAnswersCounter * 100 / numberOfQuestions;
-  const percentageWrong = wrongAnswersCounter * 100 / numberOfQuestions;
+  const percentageRight = parseFloat((rightAnswersCounter * 100 / numberOfQuestions).toFixed(1));
+  const percentageWrong = parseFloat((wrongAnswersCounter * 100 / numberOfQuestions).toFixed(1));
+  let circle = document.querySelector('.circle-result') //(157-158)aggiunto modifica per rendere dinamico il cerchio in base alla percentuale
+  circle.style.background = `conic-gradient(#37ffff ${percentageRight * 3.65}deg, #C1398F 0deg)`;//il cerchio celeste incrementa in base alle risposte corrette 
   percentObjects[0].innerText = percentageRight.toString();
   percentObjects[1].innerText = percentageWrong.toString();
 }
@@ -169,6 +170,8 @@ const showCurrentQuestion = (currentQuestion) => {
 
 // Mostra i risultati e nasconde il questionario
 const showResults = () => {
+  let counter = document.querySelector(".container");
+  counter.classList.add("hideContainer");
   // Nasconde la pagina del questionario
   let toHide = document.getElementById("pageTwo");
   toHide.classList.add("hidePage");
@@ -181,6 +184,7 @@ const showResults = () => {
   injectPercentages(rightAnswersCounter, wrongAnswersCounter);
   injectToResults(rightAnswersCounter, wrongAnswersCounter, numberOfQuestions);
   injectOutcomeMessage(rightAnswersCounter, numberOfQuestions);
+
 }
 
 // Inietta le risposte nell'HTML
@@ -314,13 +318,21 @@ prossimaBtn.addEventListener("click", function(){
   }
 })
 
+  // Inietta il numero di domande nel testo HTML
+const injectNumberOfQuestions = (numberOfQuestions) => {
+  let numOfQuestions = document.querySelector(".outOf");
+  numOfQuestions.innerText = numberOfQuestions;
+}
+
 // Avvia il timer
 const setTimer = () => {
   let containerTimer = document.querySelector('#timer span');
+  let circle = document.querySelector(".circle");
   containerTimer.innerHTML = count;
   timer = setTimeout(update,1000)
   function update(){
-    if(count > 0){             
+    if(count > 0){
+      circle.style.background = `conic-gradient(#37ffff ${(count)*6}deg,  #ffffff7a 0deg)`;//ogni secondo modifica lo stile,decrementa il cerchio celeste             
       containerTimer.innerHTML = --count;
       timer = setTimeout(update,1000);
     }else{        
@@ -333,6 +345,8 @@ const setTimer = () => {
 }
 
 const questionnaire = () => {
+
+  // Mostra i risultati e termina la funzione se raggiunto il massimo di domande
   if (questionsCounter >= numberOfQuestions){
     showResults();
     clearTimeout(timer);
@@ -352,6 +366,7 @@ const questionnaire = () => {
     element.innerText = ''
   }
   // Inietta nell' HTML il numero della domanda
+  injectNumberOfQuestions(numberOfQuestions);
   injectQuestionNumber(questionsCounter + 1);
   let timeCounter = 0; // Secondi rimasti
   let questionContainer = document.getElementById("nextQuestContainer");
