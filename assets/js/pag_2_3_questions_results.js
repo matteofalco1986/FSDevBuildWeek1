@@ -322,7 +322,7 @@ const setTimer = () => {
   timer = setTimeout(update,1000)
   function update(){
     if(count > 0){             
-      circle.style.background = `conic-gradient(#37ffff ${(count)*6}deg, #ededed 0deg)`;//ogni secondo modifica lo stile,decrementa il cerchio celeste
+      circle.style.background = `conic-gradient(#37ffff ${(count)*6}deg,  #ffffff7a 0deg)`;//ogni secondo modifica lo stile,decrementa il cerchio celeste
       containerTimer.innerHTML = --count;
       timer = setTimeout(update,1000);
     }else{        

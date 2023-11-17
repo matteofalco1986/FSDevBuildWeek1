@@ -412,13 +412,28 @@ strong {
 }
 
 /*formattazione cerchio timer*/
-.circle,
-.wraper{
+.circle{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.wraper p{ /*formattazione dei secondi rimanenti*/
+    font-size: 0.4em;
+    text-transform: uppercase;
+    display: block;
+    padding: 0.3em;
+    margin-top: 1em;    
+}
+
+.wraper span{
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+.wraper span + p{
+    margin-top:0.3em; /*formattazione dei secondi rimanenti*/
+}
 
 .container {
   width: 500px;
@@ -429,9 +444,8 @@ strong {
   height: 120px;
   width: 120px;
   border-radius: 50%;
-  background-color: #37ffff;
-  background: conic-gradient(#37ffff 3.6deg, #ededed 0deg);
-
+  background-color: #37ffff00;
+  background: conic-gradient(#37ffff 3.6deg, #ffffff7a 0deg);
 }
 .wraper{
   width: 95px;
