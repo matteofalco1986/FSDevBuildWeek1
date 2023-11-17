@@ -154,6 +154,8 @@ const injectPercentages = (rightAnswersCounter, wrongAnswersCounter) => {
   const percentObjects = document.getElementsByClassName("percent");
   const percentageRight = rightAnswersCounter * 100 / numberOfQuestions;
   const percentageWrong = wrongAnswersCounter * 100 / numberOfQuestions;
+  let circle = document.querySelector('.circle-result') //(157-158)aggiunto modifica per rendere dinamico il cerchio in base alla percentuale
+  circle.style.background = `conic-gradient(#37ffff ${percentageRight}deg, #C1398F 0deg)`;//il cerchio celeste incrementa in base alle risposte corrette 
   percentObjects[0].innerText = percentageRight.toString();
   percentObjects[1].innerText = percentageWrong.toString();
 }

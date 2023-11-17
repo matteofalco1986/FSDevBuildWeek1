@@ -61,30 +61,32 @@
                     <h2>Results</h2>
                     <p>The summary of your answers:</p>
                 </div>
-                <div class="results">
+                <div class="results"><!-- da riga 64 a 89 modificato html per l'inserimento del cerchio-->
                     <div class="leftBox">
                         <h3>Correct</h3>
                         <p><span class="percent">60</span>%</p>
                         <p class="outOfRecap"><span id="rightAnswers"></span> / <span class="outOf">10</span> questions</p>
                     </div>
-                    <div id="circle"> <!-- cerchio con percentuali e scritte -->
-                        <div class="textInsideCircle">
-                            <div class="testOutcomeText">
-                                <p>Congratulations!</p>
-                                <p class="passedOutcome">You passed the exam.</p>
-                            </div>
-                            <div class="outcomeDescription">
-                                <p>We'll send you the certificate in few minutes.</p>
-                                <p>Check your email (including promotions / spam folder)</p>
+                    <div class="circle-result">
+                        <div class="wraper-result">
+                            <div class="textInsideCircle">
+                                <div class="testOutcomeText">
+                                    <p>Congratulations!</p>
+                                    <p class="passedOutcome">You passed the exam.</p>
+                                </div>
+                                <div class="outcomeDescription">
+                                    <p>We'll send you the certificate in few minutes.</p>
+                                    <p>Check your email (including promotions / spam folder)</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </div> <!-- cerchio con percentuali e scritte -->
                     <div class="rightBox">
                         <h3>Wrong</h3>
                         <p><span class="percent">40</span>%</p>
                         <p class="outOfRecap"><span id="wrongAnswers">1</span> / <span class="outOf">10</span> questions</p>
-                    </div>
-                </div>
+                    </div>        
+                </div>    
                 <div id="rateUsContainer" type="">
                     <form action="pag_4_feedback.html">    
                         <button type="submit" id="rateUsBtn">rate us</button>

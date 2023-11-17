@@ -15,7 +15,6 @@ body {
     background-image: url('../images/bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     text-align: center;
     line-height: 1.4;
 }
@@ -454,4 +453,31 @@ strong {
   border-radius: 50%;
 }
 
+/*formattazione cerchio pagina 3*/
 
+.circle-result, .wraper-result{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+  .circle-result {
+    height: 360px;
+    width: 360px;
+    border-radius: 50%;
+    background-color: #C1398F;
+    background: conic-gradient(#37ffff 50deg, #C1398F 0deg);
+}
+  .wraper-result {
+    margin-top: 23px;
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/bg_result.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+  .wraper-result .textInsideCircle{
+    margin-top: 60px
+}
